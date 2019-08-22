@@ -1,48 +1,26 @@
-import React, { useState, useEffect} from 'react';
-import Recipe from './Recipe';
+import React from 'react';
 import './App.css';
+import Nav from './Nav';
+import Upload from './Upload';
+import Home from './Home';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const App = () => {
 
-  const apiEndpoint = "https://public-recepy-api.herokuapp.com/recepts";
-
-  const [recipes, setRecepies] = useState([]);
-  const [search, setSearch] = useState("");
-
-  useEffect( () => {
-    getRecepies();
-  }, []);
-
-  const getRecepies = async () => {
-    const response = await fetch(apiEndpoint);
-    const data = await response.json();
-    setRecepies(data);
-    console.log(data);
-  }
-
-  const updateSearch = e => {
-    setSearch(e.target.value);
-  }
+  
 
   return (
-    <div className="App">
-      <h1>Welcome to the best Cake recipe website!</h1>
-      <form className="search-form">
-        <input type="text" className="search-bar" value={search} onChange={updateSearch}/>
-        <button type="submit" className="search-button">Search</button>
-      </form>
-
-      <div className="recipes">
-        {recipes.map(recipe => (
-          <Recipe 
-          name={recipe.name} 
-          ingredients={recipe.ingredients} 
-          owner={recipe.owner} 
-          creationDate={recipe.creationDate.split('T')[0]}
-          />
-        ))}
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+            <Route path="/" exact component={Home}/>
+        </Switch>
+        <Switch>
+            <Route path="/upload" exact component={Upload}/>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 
