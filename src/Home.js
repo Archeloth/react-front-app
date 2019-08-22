@@ -33,6 +33,7 @@ function Home(){
             <div className="recipes">
                 {recipes.map(recipe => (
                 <Recipe 
+                id={recipe._id}
                 name={recipe.name} 
                 ingredients={recipe.ingredients} 
                 owner={recipe.owner} 

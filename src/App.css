@@ -13,6 +13,9 @@ nav{
   align-items: center;
   list-style: none;
 }
+.nav-links:hover{
+  text-decoration: underline;
+}
 .App{
   display: flex;
   flex-direction: column;
@@ -28,6 +31,7 @@ nav{
   border: 5px solid rgb(202, 202, 202);
   border-radius: 10px;
   background-color: rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
   font-size: 1.5em;
   color: white;
 }
@@ -38,6 +42,7 @@ nav{
   border: 5px solid rgb(202, 202, 202);
   border-radius: 10px;
   background-color: rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
   font-size: 1.5em;
   margin-left: 10px;
 }
@@ -57,6 +62,34 @@ nav{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+.recipe-links{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  list-style: none;
+  font-weight: bold;
+}
+.delete{
+  color: red;
+  cursor: pointer;
+}
+.modify{
+  color: orange;
+}
+.upload-form > input[type=text], .upload-submit{
+  display: block;
+  width: 40vw;
+  border: 5px solid rgb(202, 202, 202);
+  background-color: rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  margin: 1em;
+  font-size: 1.5em;
+  text-align: center;
+}
+.upload-form > input[type=text]:focus, .upload-submit:hover, .upload-submit:focus{
+  background-color: rgba(0,0,0,0.6);
 }
 
 @media only screen and (max-width: 600px) {
