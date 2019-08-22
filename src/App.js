@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect} from 'react';
+import Recipe from './Recipe';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const apiEndpoint = "https://public-recepy-api.herokuapp.com/recepts";
+
+  const [recipes, setRecepies] = useState([]);
+  const [search, setSearch] = useState("");
+
+  useEffect( () => {
+    getRecepies();
+  }, []);
+
+  const getRecepies = async () => {
+    const response = await fetch(apiEndpoint);
+    const data = await response.json();
+    setRecepies(data);
+    console.log(data);
+  }
+
+  const updateSearch = e => {
+    setSearch(e.target.value);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to the best Cake recipe website!</h1>
+      <form className="search-form">
+        <input type="text" className="search-bar" value={search} onChange={updateSearch}/>
+        <button type="submit" className="search-button">Search</button>
+      </form>
+
+      <div className="recipes">
+        {recipes.map(recipe => (
+          <Recipe 
+          name={recipe.name} 
+          ingredients={recipe.ingredients} 
+          owner={recipe.owner} 
+          creationDate={recipe.creationDate.split('T')[0]}
+          />
+        ))}
+      </div>
     </div>
   );
 }
