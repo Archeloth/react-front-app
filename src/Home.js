@@ -6,7 +6,8 @@ function Home(){
     const apiEndpoint = "https://public-recepy-api.herokuapp.com/recepts";
 
     const [recipes, setRecepies] = useState([]);
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState('');
+    const [query, setQuery] = useState('');
 
     useEffect( () => {
         getRecepies();
@@ -16,16 +17,24 @@ function Home(){
         const response = await fetch(apiEndpoint);
         const data = await response.json();
         setRecepies(data);
-        console.log(data);
+        //console.log(data);
     }
 
     const updateSearch = e => {
         setSearch(e.target.value);
     }
+
+    const getSearch = e => {
+        e.preventDefault();
+        setQuery(search);
+        setSearch("");
+        console.log(apiEndpoint+"/search/"+query);
+    }
+
     return(
         <div>
             <h1>Welcome to the best Cake recipe website!</h1>
-            <form className="search-form">
+            <form onSubmit={getSearch} className="search-form">
                 <input type="text" className="search-bar" value={search} onChange={updateSearch}/>
                 <button type="submit" className="search-button">Search</button>
             </form>

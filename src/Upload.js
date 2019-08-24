@@ -20,7 +20,7 @@ class Upload extends Component {
 
     submitHandler = e => {
 
-        if(this.state.ingredients != "" || this.state.name != "" || this.state.owner != ""){
+        if(this.state.ingredients !== "" || this.state.name !== "" || this.state.owner !== ""){
             this.state.ingredients = this.state.ingredients.split(',');
         }
         
