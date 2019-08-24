@@ -6,7 +6,7 @@ function Search () {
 
     const [recipes, setRecepies] = useState([]);
     const [search, setSearch] = useState('');
-    const [query, setQuery] = useState('');
+    const [results, setResults] = useState(0);
 
     const apiEndpoint = "https://public-recepy-api.herokuapp.com/recepts/search/";
 
@@ -17,18 +17,19 @@ function Search () {
     const getSearch = e => {
         e.preventDefault();
         if(search === "") { return };
-        console.log(search);
-        console.log(query);
-        setQuery(search);
+        //console.log(search);
         getRecepies();
         setSearch("");
     }
 
     const getRecepies = async () => {
-        const response = await fetch(apiEndpoint+query);
-        const data = await response.json();
-        console.log(data);
-        setRecepies(data);
+        const response = await fetch(apiEndpoint+search);
+        if(response.status === 200){
+            const data = await response.json();
+            console.log(data);
+            setResults(data.length);
+            setRecepies(data);
+        }
     }
 
     return (
@@ -37,6 +38,7 @@ function Search () {
                 <input type="text" className="search-bar" value={search} onChange={updateSearch}/>
                 <button type="submit" className="search-button">Search</button>
             </form>
+            <p>Found recipes: {results}</p>
             <div className="recipes">
                 {recipes.map(recipe => (
                 <Recipe 
