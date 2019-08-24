@@ -13,9 +13,6 @@ nav{
   align-items: center;
   list-style: none;
 }
-.nav-links:hover{
-  text-decoration: underline;
-}
 .App{
   display: flex;
   flex-direction: column;
