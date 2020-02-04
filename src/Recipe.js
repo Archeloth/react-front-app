@@ -7,8 +7,11 @@ const Recipe = (props) => {
     const deleteRecipe = (e) => {
         const r = window.confirm("Are you sure you want to delete this recipe?");
         if(r === true){
-            axios.defaults.headers.delete['Access-Control-Allow-Origin'] = '*';
-            axios.delete(`https://public-recepy-api.herokuapp.com/recepts/${props.id}`)
+            axios.defaults.headers.delete['Access-Control-Allow-Origin'] = 'access-control-allow-origin';
+            axios.delete(
+                `https://public-recepy-api.herokuapp.com/recepts/${props.id}`,
+                'GET,POST,PATCH,DELETE',
+            )
             .then(response => {
                 console.log(response);
                 window.location.reload();

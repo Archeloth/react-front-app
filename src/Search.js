@@ -12,32 +12,28 @@ function Search () {
 
     const updateSearch = e => {
         setSearch(e.target.value);
-    }
-
-    const getSearch = e => {
-        e.preventDefault();
-        if(search === "") { return };
-        //console.log(search);
-        getRecepies();
-        setSearch("");
+        if (e.target.value.length > 3) {
+            getRecepies();
+        } else {
+            while(recipes.length > 0) {
+                recipes.pop();
+            }
+            setResults(0);
+        }
     }
 
     const getRecepies = async () => {
         const response = await fetch(apiEndpoint+search);
         if(response.status === 200){
             const data = await response.json();
-            console.log(data);
             setResults(data.length);
             setRecepies(data);
         }
     }
 
     return (
-        <div>
-            <form onSubmit={getSearch} className="search-form">
-                <input type="text" className="search-bar" value={search} onChange={updateSearch}/>
-                <button type="submit" className="search-button">Search</button>
-            </form>
+        <div className="search">
+            <input type="text" className="search-input" value={search} onChange={updateSearch}/>
             <p>Found recipes: {results}</p>
             <div className="recipes">
                 {recipes.map(recipe => (

@@ -1,25 +1,22 @@
 import React from 'react';
 import './App.css';
-import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Nav(){
-    const navStyle = {
-        color: 'white',
-        textDecoration: 'none'
-    };
+
     return(
         <nav>
-            <Link to="/" style={navStyle}>
-                <h3>Logo</h3>
-            </Link>
-            <ul className="nav-links">
-                <Link to="/search" style={navStyle}>
-                    <li className="nav-link">Search</li>
-                </Link>
-                <Link to="/upload" style={navStyle}>
-                    <li className="nav-link">Upload</li>
-                </Link>
-            </ul>
+            <NavLink to="/" exact={true} activeClassName="active" className="nav-link">
+                <h3>Home page</h3>
+            </NavLink>
+            <div className="nav-links">
+                <NavLink to="/search" activeClassName="active" className="nav-link">
+                    Search
+                </NavLink>
+                <NavLink to="/upload" activeClassName="active" className="nav-link">
+                    Upload
+                </NavLink>
+            </div>
         </nav>
     );
 }
