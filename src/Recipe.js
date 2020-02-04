@@ -7,6 +7,7 @@ const Recipe = (props) => {
     const deleteRecipe = (e) => {
         const r = window.confirm("Are you sure you want to delete this recipe?");
         if(r === true){
+            axios.defaults.headers.delete['Access-Control-Allow-Origin'] = '*';
             axios.delete(`https://public-recepy-api.herokuapp.com/recepts/${props.id}`)
             .then(response => {
                 console.log(response);
