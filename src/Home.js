@@ -15,7 +15,6 @@ function Home(){
         const response = await fetch(apiEndpoint);
         const data = await response.json();
         setRecepies(data);
-        console.log(data);
     }
 
     return(
@@ -25,6 +24,7 @@ function Home(){
             <div className="recipes">
                 {recipes.map(recipe => (
                 <Recipe 
+                key={recipe._id}
                 id={recipe._id}
                 name={recipe.name} 
                 ingredients={recipe.ingredients} 

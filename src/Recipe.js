@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import axios from 'axios';
 
@@ -9,15 +9,14 @@ const Recipe = (props) => {
         if(r === true){
             axios.defaults.headers.delete['Access-Control-Allow-Origin'] = 'access-control-allow-origin';
             axios.delete(
-                `https://public-recepy-api.herokuapp.com/recepts/${props.id}`,
-                'GET,POST,PATCH,DELETE',
+                `https://public-recepy-api.herokuapp.com/recepts/${props.id}`
             )
             .then(response => {
                 console.log(response);
                 window.location.reload();
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
             });
         } else {
             //Return

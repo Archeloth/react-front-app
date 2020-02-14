@@ -13,7 +13,6 @@ class Upload extends Component {
         }
     }
 
-
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -21,14 +20,8 @@ class Upload extends Component {
     submitHandler = e => {
 
         if(this.state.ingredients !== "" || this.state.name !== ""){
-            this.state.ingredients = this.state.ingredients.split(',');
+            this.setState(this.state.ingredients.split(','));
         }
-        
-        /*
-        ????????????????????????????????????????
-        let a = this.state.ingredients.split(',');
-        this.setState({ingredients: a});
-        */
 
         e.preventDefault();
 
