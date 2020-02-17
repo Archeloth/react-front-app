@@ -1,0 +1,85 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        svg {
+        -webkit-animation: 2s linear infinite svg--animation;
+                animation: 2s linear infinite svg--animation;
+        }
+        circle {
+        fill: transparent;
+        stroke: url(#gradient);
+        stroke-width: 14;
+        stroke-dasharray: 284;
+        stroke-linecap: round;
+        -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+        stroke-dashoffset: 280;
+        -webkit-animation: 1.4s ease-in-out infinite both circle--animation;
+                animation: 1.4s ease-in-out infinite both circle--animation;
+        }
+
+        @-webkit-keyframes circle--animation {
+        0%, 25% {
+            stroke-dashoffset: 280;
+            -webkit-transform: rotate(0);
+                    transform: rotate(0);
+        }
+        50%, 75% {
+            stroke-dashoffset: 75;
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+        }
+        100% {
+            stroke-dashoffset: 280;
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+        }
+
+        @keyframes circle--animation {
+        0%, 25% {
+            stroke-dashoffset: 280;
+            -webkit-transform: rotate(0);
+                    transform: rotate(0);
+        }
+        50%, 75% {
+            stroke-dashoffset: 75;
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+        }
+        100% {
+            stroke-dashoffset: 280;
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+        }
+        @-webkit-keyframes svg--animation {
+        0% {
+            -webkit-transform: rotateZ(0deg);
+                    transform: rotateZ(0deg);
+        }
+        100% {
+            -webkit-transform: rotateZ(360deg);
+                    transform: rotateZ(360deg);
+        }
+        }
+        @keyframes svg--animation {
+        0% {
+            -webkit-transform: rotateZ(0deg);
+                    transform: rotateZ(0deg);
+        }
+        100% {
+            -webkit-transform: rotateZ(360deg);
+                    transform: rotateZ(360deg);
+        }
+        }
+    </style>
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#a770ef"/>
+            <stop offset="50%" stop-color="#cf8bf3"/>
+            <stop offset="100%" stop-color="#fbd99b"/>
+        </linearGradient>
+    </defs>
+    <circle class="c1" cx="50" cy="50" r="42" />
+</svg>
