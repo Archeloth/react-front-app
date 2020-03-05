@@ -10,3 +10,5 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+document.getElementById('footer').innerHTML = "Made with React.js - &copy;" + new Date().getFullYear()

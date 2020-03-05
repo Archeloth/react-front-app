@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Recipe from './Recipe';
-import './App.css';
 
 function Search () {
 
@@ -32,12 +31,13 @@ function Search () {
     }
 
     return (
-        <div className="search">
-            <input type="text" className="search-input" value={search} onChange={updateSearch}/>
+        <div>
+            <input type="text" className="search-input" value={search} onChange={updateSearch} placeholder="Search"/>
             <p>Found recipes: {results}</p>
             <div className="recipes">
                 {recipes.map(recipe => (
                 <Recipe 
+                key={recipe._id}
                 id={recipe._id}
                 name={recipe.name} 
                 ingredients={recipe.ingredients} 

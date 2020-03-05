@@ -6,7 +6,7 @@ function Home(){
     const apiEndpoint = "https://public-recepy-api.herokuapp.com/recepts";
 
     const [recipes, setRecepies] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
+    //const [recepyStates, setRecepyStates] = useState([]);
 
     useEffect(() => {
         getRecepies();
@@ -26,14 +26,14 @@ function Home(){
 
             <div className="recipes">
                 {recipes.map(recipe => (
-                <Recipe 
-                key={recipe._id}
-                id={recipe._id}
-                name={recipe.name} 
-                ingredients={recipe.ingredients} 
-                owner={recipe.owner} 
-                creationDate={recipe.creationDate.split('T')[0]}
-                />
+                    <Recipe
+                        key={recipe._id}
+                        id={recipe._id}
+                        name={recipe.name}
+                        ingredients={recipe.ingredients}
+                        owner={recipe.owner}
+                        creationDate={recipe.creationDate.split('T')[0]}
+                    />
                 ))}
             </div>
         </div>

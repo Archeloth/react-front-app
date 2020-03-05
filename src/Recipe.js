@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
 import axios from 'axios';
 
 const Recipe = (props) => {
+
+    //const [recepyState, setRecepyState] = useState(true);
 
     const deleteRecipe = (e) => {
         const r = window.confirm("Are you sure you want to delete this recipe?");
@@ -12,14 +13,12 @@ const Recipe = (props) => {
                 `https://public-recepy-api.herokuapp.com/recepts/${props.id}`
             )
             .then(response => {
-                console.log(response);
-                window.location.reload();
+                window.location.reload()
+                //setRecepyState = false;
             })
             .catch(error => {
-                console.error(error);
+                throw error;
             });
-        } else {
-            //Return
         }
     };
 
@@ -37,10 +36,10 @@ const Recipe = (props) => {
             
             <p><span>Created: </span><b>{props.creationDate}</b></p>
 
-            <ul className="recipe-links">
-                <li className="modify" key="modify">Modify</li>
-                <li className="delete" key="delete" onClick={deleteRecipe}>Delete</li>
-            </ul>
+            <div className="recipe-links">
+                <span className="modify" key="modify">Modify</span>
+                <span className="delete" key="delete" onClick={deleteRecipe}>Delete</span>
+            </div>
 
         </div>
     );

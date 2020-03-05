@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Nav from './Nav';
 import Upload from './Upload';
 import Home from './Home';
@@ -7,8 +6,6 @@ import Search from './Search';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const App = () => {
-
-  
 
   return (
     <Router>

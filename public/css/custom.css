@@ -1,0 +1,228 @@
+body {
+  color: #4daf4d;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 3em;
+  width: 100%;
+  background-color: #4daf4d;
+  -webkit-box-shadow: 2px 2px 5px #265526;
+          box-shadow: 2px 2px 5px #265526;
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+nav > a, .nav-links > a {
+  text-decoration: none;
+}
+
+.nav-link {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 1.2em;
+  color: #c2f8c2;
+}
+
+.nav-link:hover, .active {
+  color: white;
+}
+
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #dbffa4;
+  min-height: 100vh;
+  height: auto;
+}
+
+.App > div {
+  width: 75%;
+}
+
+.recipes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0.5em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.recipe {
+  background-color: #4daf4d;
+  color: #c2f8c2;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(38, 85, 38, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(38, 85, 38, 0.2);
+  border-radius: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  padding: 2em;
+}
+
+.recipe:hover {
+  background-color: #265526;
+  -webkit-box-shadow: 0 8px 12px 0 rgba(38, 85, 38, 0.5);
+          box-shadow: 0 8px 12px 0 rgba(38, 85, 38, 0.5);
+}
+
+.recipe > ul > li {
+  list-style: url("../assets/list-img.svg");
+}
+
+.recipe > h1 {
+  margin: 0;
+}
+
+.recipe-links {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-weight: bold;
+}
+
+.delete {
+  color: #ff9595;
+  cursor: pointer;
+}
+
+.modify {
+  color: #ffbf48;
+  cursor: pointer;
+}
+
+input[type=text] {
+  display: block;
+  width: 40vw;
+  border: none;
+  border-bottom: 2px solid #4daf4d;
+  background-color: transparent;
+  -webkit-transition: border-bottom-color 0.2s linear;
+  transition: border-bottom-color 0.2s linear;
+  margin: 1em;
+  font-size: 1.5em;
+  color: #4daf4d;
+}
+
+input[type=text]::-webkit-input-placeholder {
+  color: #4daf4d;
+}
+
+input[type=text]:-ms-input-placeholder {
+  color: #4daf4d;
+}
+
+input[type=text]::-ms-input-placeholder {
+  color: #4daf4d;
+}
+
+input[type=text]::placeholder {
+  color: #4daf4d;
+}
+
+input[type=text]:focus, input[type=text]:active {
+  border-bottom-color: #265526;
+  color: #265526;
+}
+
+input[type=text]:focus::-webkit-input-placeholder, input[type=text]:active::-webkit-input-placeholder {
+  color: #265526;
+}
+
+input[type=text]:focus:-ms-input-placeholder, input[type=text]:active:-ms-input-placeholder {
+  color: #265526;
+}
+
+input[type=text]:focus::-ms-input-placeholder, input[type=text]:active::-ms-input-placeholder {
+  color: #265526;
+}
+
+input[type=text]:focus::placeholder, input[type=text]:active::placeholder {
+  color: #265526;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.5em;
+  -webkit-box-shadow: 10px 10px 60px rgba(219, 255, 164, 0.5), -10px -10px 60px rgba(219, 255, 164, 0.9);
+          box-shadow: 10px 10px 60px rgba(219, 255, 164, 0.5), -10px -10px 60px rgba(219, 255, 164, 0.9);
+  padding: 0.75em 2em;
+  background-color: #4daf4d;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  color: #265526;
+}
+
+.btn:hover, .btn:focus {
+  background-color: rgba(38, 85, 38, 0.85);
+  color: #dbffa4;
+  cursor: pointer;
+}
+
+#loader {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
+  background: url("../assets/loader.svg");
+}
+
+#loader.hidden {
+  display: none;
+}
+
+footer {
+  background: #265526;
+  color: #dbffa4;
+  text-align: center;
+  padding: 1em;
+}
+/*# sourceMappingURL=custom.css.map */

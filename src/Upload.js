@@ -18,24 +18,20 @@ class Upload extends Component {
     }
 
     submitHandler = e => {
-
-        if(this.state.ingredients !== "" || this.state.name !== ""){
-            this.setState(this.state.ingredients.split(','));
-        }
-
         e.preventDefault();
 
-        console.log(this.state);
-        
+        if(this.state.ingredients !== "" || this.state.name !== ""){
+            this.setState({ ingredients: this.state.ingredients.split(',')});
+        }
+
         axios.defaults.headers.post['Content-Type'] = 'application/json';
         axios.post("https://public-recepy-api.herokuapp.com/recepts", this.state)
             .then(response => {
-                console.log(response);
                 this.setState({message: "Update successful"});
             })
             .catch(error => {
-                console.log(error);
                 this.setState({message: "Error while uploading"});
+                throw error
             })
     }
 
@@ -50,7 +46,7 @@ class Upload extends Component {
                     <input type="text" name="name" value={name} onChange={this.changeHandler} placeholder="Name" />
                     <input type="text" name="ingredients" value={ingredients} onChange={this.changeHandler} placeholder="Ingredients" />
                     <input type="text" name="owner" value={owner} onChange={this.changeHandler} placeholder="Owner" />
-                    <button type="submit" className="upload-submit">Submit</button>
+                    <button type="submit" className="btn">Submit</button>
                 </form>
                 <p>{this.state.message}</p>
             </div>

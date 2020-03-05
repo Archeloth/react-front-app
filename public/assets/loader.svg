@@ -76,9 +76,9 @@
     </style>
     <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#a770ef"/>
-            <stop offset="50%" stop-color="#cf8bf3"/>
-            <stop offset="100%" stop-color="#fbd99b"/>
+            <stop offset="0%" stop-color="#dbffa4"/>
+            <stop offset="50%" stop-color="#4daf4d"/>
+            <stop offset="100%" stop-color="#265526"/>
         </linearGradient>
     </defs>
     <circle class="c1" cx="50" cy="50" r="42" />
